@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    movies = []
+    movies = range(20)
     return render_template("homepage.html", movies=movies)
 
 if __name__ == '__main__':
