@@ -1,3 +1,4 @@
+import random
 import requests
 
 def get_popular_movies():
@@ -14,5 +15,5 @@ def get_poster_url(poster_api_path, size="w342"):
     return f"{base_url}{size}/{poster_api_path}"   
 
 def get_movies(how_many):
-    data = get_popular_movies()
-    return data['results'][:how_many]
+    data = get_popular_movies()['results']
+    return random.sample(data, k=len(data))[:how_many]
