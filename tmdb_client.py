@@ -28,10 +28,10 @@ def get_single_movie(movie_id):
     response = requests.get(endpoint, headers=headers)
     return response.json()
 
-def get_single_movie_cast(movie_id):
+def get_single_movie_cast(movie_id, how_many):
     endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
     headers = {
         "Authorization": f"Bearer {api_token}"
     }
     response = requests.get(endpoint, headers=headers)
-    return response.json()['cast']
+    return response.json()['cast'][:how_many]

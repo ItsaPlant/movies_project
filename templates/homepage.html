@@ -12,10 +12,10 @@
        <div class="card h-100">
            <img class="card-img-top" src="{{ tmdb_image_url(movie.poster_path, "w780") }}" alt="">
            <div class="card-body">
-               <h4 class="card-title">{{ movie.title }}</h4>
+                <h4 class="card-title">{{ movie.title }}</h4>
            </div>
            <div class="card-footer text-center">
-               <a href="{{ url_for('movie_details', movie_id=movie.id) }}">Pokaż więcej</a>
+                <a href="{{ url_for('movie_details', movie_id=movie.id) }}">Pokaż więcej</a>
            </div>
        </div>
    </div>

@@ -33,8 +33,8 @@
        <div class="col-md-3 col-sm-6 mb-4">
            <a href="#">
                <figure class="figure">
-                   {% if actor.profile in cast %}
-                   <img src="{{ tmdb_image_url(actor.profile_path, "w185") }}" class="figure-img img-fluid rounded" alt="{{ actor.name }}">                   <figcaption class="figure-caption">John Doe</figcaption>
+                    {% if actor.profile in cast %}
+                    <img src="{{ tmdb_image_url(actor.profile_path, "w185") }}" class="figure-img img-fluid rounded" alt="{{ actor.name }}">
                     {% else %}
                     <img src="https://placehold.it/185x278?text={{ actor.name }}" class="figure-img img-fluid rounded" alt="{{ actor.name }}">
                     {% endif %}
