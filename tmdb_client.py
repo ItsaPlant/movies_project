@@ -9,8 +9,8 @@ def get_popular_movies():
     headers = {
         "Authorization": f"Bearer {api_token}"
     }
-    responce = requests.get(endpoint, headers=headers)
-    return responce.json()
+    response = requests.get(endpoint, headers=headers)
+    return response.json()
     
 def get_poster_url(poster_api_path, size="w342"):
     base_url = "https://image.tmdb.org/t/p/"
@@ -27,3 +27,11 @@ def get_single_movie(movie_id):
     }
     response = requests.get(endpoint, headers=headers)
     return response.json()
+
+def get_single_movie_cast(movie_id):
+    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json()['cast']
