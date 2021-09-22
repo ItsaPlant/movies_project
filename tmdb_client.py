@@ -13,8 +13,6 @@ def get_poster_url(poster_api_path, size="w342"):
     base_url = "https://image.tmdb.org/t/p/"
     return f"{base_url}{size}/{poster_api_path}"   
 
-@app.context_processor
-def utility_processor():
-    def tmdb_image_url(path, size):
-        return tmdb_client.get_poster_url(path, size)
-    return {"tmdb_image_url": tmdb_image_url}
+def get_movies(how_many):
+    data = get_popular_movies()
+    return data['results'][:how_many]
