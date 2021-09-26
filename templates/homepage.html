@@ -3,10 +3,38 @@
 {% block content %}
 
 <div class="row">
-   <div class="col-lg-12 text-center">
+    <div class="col-lg-12 text-center">
        <h1 class="mt-5">Witaj w mojej bibliotece filmów</h1>
        <p class="lead">Znajdziesz tutaj tylko najlepsze tytuły!</p>
-   </div>
+    </div>
+
+
+    <div class="col-lg-12 mb-4">
+        {% for genre in genres %}
+        <a href="{{ url_for('homepage', list_type="top_rated") }}" class="btn btn-outline-secondary">{{ genre.name }}</a>
+         {% endfor %}
+    </div>
+
+    <!-- <div class="col-lg-12 mb-4">
+    <a href="{{ url_for('homepage', list_type="top_rated") }}" class="btn btn-outline-secondary">Top Rated</a>
+    <a href="{{ url_for('homepage', list_type="upcoming") }}" class="btn btn-outline-secondary">Upcoming</a>
+    <a href="{{ url_for('homepage', list_type="popular") }}" class="btn btn-outline-secondary">Popular</a>
+    <a href="{{ url_for('homepage', list_type="now_playing") }}" class="btn btn-outline-secondary">Now Playing</a>
+    </div> -->
+
+    <!-- <div class="btn-group btn-group-toggle col-lg-12 mb-4" data-toggle="buttons">
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autocomplete="on"> Radio
+        </label>
+        <label href="{{ url_for('homepage', list_type="upcoming") }}" class="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+    </div> -->
+
    {% for movie in movies %}
    <div class="col-lg-3 col-md-6 mb-4">
        <div class="card h-100">
