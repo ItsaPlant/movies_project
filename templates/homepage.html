@@ -11,7 +11,7 @@
 
     <div class="col-lg-12 mb-4">
         {% for genre in genres %}
-        <a href="{{ url_for('homepage', list_type="top_rated") }}" class="btn btn-outline-secondary">{{ genre.name }}</a>
+        <a href="{{ url_for('homepage', list_type="top_rated") }}" type="button" class="btn btn-outline-secondary" data-toggle="button" aria-pressed="false" autocomplete="on">{{ genre.name }}</a>
          {% endfor %}
     </div>
 
