@@ -4,7 +4,7 @@ import requests
 api_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjY2OThiM2U2MThhNmNiYWU4ZDViYWE4YzJlODBkMSIsInN1YiI6IjYxNDljZDM3ZDZjMzAwMDAyYTQ2MWE4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eOu24_4pF0SitW_gYiGnXuIw6sN6rVtwZP3IpKlgW80"
 
 
-def get_popular_movies(list_type):
+def get_popular_movies(list_type): #tested
     endpoint = f"https://api.themoviedb.org/3/movie/{list_type}"
     headers = {
         "Authorization": f"Bearer {api_token}"
@@ -13,7 +13,7 @@ def get_popular_movies(list_type):
     response.raise_for_status()
     return response.json()
     
-def get_poster_url(poster_api_path, size="w342"):
+def get_poster_url(poster_api_path, size="w342"): #tested
     base_url = "https://image.tmdb.org/t/p/"
     return f"{base_url}{size}/{poster_api_path}"   
 
@@ -48,7 +48,7 @@ def get_movie_images(movie_id):
 
 #nie mogę znaleźć odpowiedniego endpointu - ale powinno działać
 def get_genres():
-    endpoint = "https://api.themoviedb.org/3/genre/movie/list"
+    endpoint = "https://api.themoviedb.org/3/genre/tv/list"
     headers = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -80,3 +80,20 @@ def list_type_check(list_type):
             return True
         get_movies(how_many=8, list_type="popularr")
     return genres
+
+
+#################### A TAK MOŻNA 100 RAZY PROŚCIEJ:
+# def call_tmdb_api(endpoint):
+#    full_url = f"https://api.themoviedb.org/3/{endpoint}"
+#    headers = {
+#        "Authorization": f"Bearer {API_TOKEN}"
+#    }
+#    response = requests.get(full_url, headers=headers)
+#    response.raise_for_status()
+#    return response.json()
+
+
+#Wtedy pozostałe funkcje będą wyglądać mniej więcej tak:
+
+# def get_movies_list(list_type):
+#     return call_tmdb_api(f"movie/{list_type}")
